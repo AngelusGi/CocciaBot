@@ -3,7 +3,7 @@
 variable "resourcePrefix" {
   type        = string
   description = "Resource prefix name"
-  default = "TelegramBot"
+  default     = "TelegramBot"
 }
 
 variable "azureRegion" {
@@ -21,7 +21,16 @@ terraform {
       source  = "hashicorp/azurerm"
       version = ">= 2.67.0"
     }
+
+    azurecaf = {
+      source  = "aztfmod/azurecaf"
+      version = "1.2.5"
+    }
   }
+}
+
+provider "azurecaf" {
+  features {}
 }
 
 provider "azurerm" {
@@ -29,11 +38,11 @@ provider "azurerm" {
 }
 
 
-## Providers
+## Custom modules
 
 module "tgBot" {
-  source     = "./modules"
+  source         = "./modules"
   resourcePrefix = var.resourcePrefix
-  azureRegion  = var.azureRegion
+  azureRegion    = var.azureRegion
 }
 
