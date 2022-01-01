@@ -1,11 +1,10 @@
 {
-  "scriptFile": "__init__.py",
   "bindings": [
     {
       "authLevel": "anonymous",
       "type": "httpTrigger",
       "direction": "in",
-      "name": "req",
+      "name": "Request",
       "methods": [
         "get",
         "post"
@@ -14,7 +13,7 @@
     {
       "type": "http",
       "direction": "out",
-      "name": "$return"
+      "name": "Response"
     }
   ]
 }
